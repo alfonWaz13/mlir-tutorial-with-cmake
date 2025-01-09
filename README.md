@@ -9,16 +9,13 @@ This setup assumes that you have built LLVM and MLIR in `$BUILD_DIR` and install
 ```sh
 mkdir build && cd build
 cmake -G Ninja .. -DMLIR_DIR=$PREFIX/lib/cmake/mlir -DLLVM_EXTERNAL_LIT=$BUILD_DIR/bin/llvm-lit
-cmake --build . --target check-standalone-opt
+cmake --build .
 ```
-To build the documentation from the TableGen description of the dialect
-operations, run
-```sh
-cmake --build . --target mlir-doc
-```
-**Note**: Make sure to pass `-DLLVM_INSTALL_UTILS=ON` when building LLVM with
-CMake so that it installs `FileCheck` to the chosen installation prefix.
-
 ## License
-
 This dialect template is made available under the Apache License 2.0 with LLVM Exceptions. See the `LICENSE.txt` file for more details.
+
+## How to test
+To run the test, you need to build the project. Then, run the following command:
+```sh
+./build/bin/tools/tutorial-opt --affine-full-unroll ./test/affine_loop_unroll.mlir
+```
