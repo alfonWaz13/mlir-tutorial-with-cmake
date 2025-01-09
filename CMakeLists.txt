@@ -6,7 +6,7 @@ if(POLICY CMP0116)
   cmake_policy(SET CMP0116 OLD)
 endif()
 
-project(standalone-dialect LANGUAGES CXX C)
+project(tutorial-opt-tool LANGUAGES CXX C)
 
 set(CMAKE_CXX_STANDARD 17 CACHE STRING "C++ standard to conform to")
 
@@ -39,4 +39,4 @@ include(sanitizers)
 
 add_subdirectory(lib)
 add_subdirectory(test)
-add_subdirectory(standalone-opt)
+add_subdirectory(tools)
